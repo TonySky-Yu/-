@@ -8,7 +8,7 @@ class connecter:
     def __repr__(self):
         return (self.a.__repr__() + self.sign + self.b.__repr__())
 class kds:
-    """考点的父类,用于格式化考点类的行为"""
+    __doc__ = """考点的父类,用于格式化考点类的行为"""
     def __init__(selfa, a = 0 , b = 0):
         self.tex = ""
     def __repr__(self):
@@ -21,6 +21,7 @@ class kds:
 ###############分割线#################
 
 class ocf(kds):
+    __doc__ = "负数偶次方"
     def __init__(self, a = 0, b = 0):
         """
         本考点用于生成负数偶次方
@@ -32,6 +33,7 @@ class ocf(kds):
         self.tex = f"({num1})^2"
 
 class lcf(kds):
+    __doc__ = "生成零次方"
     def __init__(self, a = 0 , b = 0):
         """
         本考点用于生成零次方
@@ -46,6 +48,7 @@ class lcf(kds):
         self.tex = f"({choice(basiclist)})^0"
 
 class ecgs(kds):
+    __doc__ = "二次根式"
     def __init__(self, a = 0, b = 0):
         """
         本考点用于生成二次根式
@@ -58,6 +61,7 @@ class ecgs(kds):
                            r"\sqrt{4}", r"\sqrt{9}"])
 
 class sjhs(kds):
+    __doc__ = "三角函数"
     def __init__(self,a = 0, b = 0):
         """
         本考点用于生成三角函数
@@ -76,6 +80,7 @@ class sjhs(kds):
             self.tex = choice([r"sin 30^{\circ}", r"cos 60^{\circ}", r"tan 45^{\circ}"])
 
 class zsfzs(kds):
+    __doc__ = "整数的负指数"
     def __init__(self, a, b):
         """
         本考点用于生成整数的负指数
@@ -88,6 +93,7 @@ class zsfzs(kds):
             self.tex = "2^{-1}"
 
 class fsfzs(kds):
+    __doc__ = "整数的负指数"
     def __init__(self, a, b):
         """
         本考点用于生成整数的负指数
@@ -104,6 +110,7 @@ class fsfzs(kds):
         self.tex = f"({choice(possible_list)})^" + "{-1}"
 
 class gsfzs(kds):
+    __doc__ = "根式的负指数"
     def __init__(self, a, b):
         """
         本考点用于生成根式的负指数
@@ -123,6 +130,7 @@ class gsfzs(kds):
         self.tex = f"({choice(possible_list)})" + "^{-1}"
 
 class fzs(kds):
+    __doc__ = "分子为一的负指数"
     def __init__(self, a, b):
         """
         本考点用于生成分子为一的负指数
@@ -137,6 +145,7 @@ class fzs(kds):
         self.tex = r"(\frac{1}{" + f"{choice(posiible_list)}" + "})^{-1}"
 
 class jdz(kds):
+    __doc__ = "负数的绝对值"
     def __init__(self, a, b):
         """
         本考点用于生成负数的绝对值
@@ -147,7 +156,7 @@ class jdz(kds):
         if a == 2:
             posiible_list.extend([str(k) + r"\sqrt{2}" for k in range(2, 4)])
         elif a == 3:
-            posiible_list.append([str(k) + r"\sqrt{3}" for k in range(2, 4)])
+            posiible_list.extend([str(k) + r"\sqrt{3}" for k in range(2, 4)])
         if b == 2:
             posiible_list.extend([r"\frac{1}{2}", r"\frac{3}{2}", r"\frac{5}{2}"])
         elif b == 3:
@@ -156,6 +165,7 @@ class jdz(kds):
         self.tex = f"|-{choice(posiible_list)}|"
 
 class cdjdz(kds):
+    __doc__ = "差的绝对值"
     def __init__(self, a, b):
         """
         本考点用于生成差的绝对值
@@ -176,6 +186,7 @@ class cdjdz(kds):
         self.tex = f"|{choice(possible_list)}|"
 
 class tsecgs(kds):
+    __doc__ = "特殊的二次根式"
     def __init__(self, a, b):
         """
         本考点用于生成特殊的二次根式
@@ -192,6 +203,7 @@ class tsecgs(kds):
         self.tex = r"\sqrt{" + f"{choice(possible_list)}" + "}"
 
 class gcgs(kds):
+    __doc__ = "高于二次的根式"
     def __init__(self, a, b):
         """
         本考点用于生成高于二次的根式
