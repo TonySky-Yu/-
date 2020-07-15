@@ -1,12 +1,5 @@
 from random import choice
 
-class connecter:
-    def __init__(self, a, b, sign = "+"):
-        self.a = a
-        self.b = b
-        self.sign = sign
-    def __repr__(self):
-        return (self.a.__repr__() + self.sign + self.b.__repr__())
 class kds:
     __doc__ = """考点的父类,用于格式化考点类的行为"""
     def __init__(selfa, a = 0 , b = 0):
