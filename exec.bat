@@ -1,3 +1,3 @@
 python main.py
 pdflatex test.tex
-del test.aux test.log
+del test.aux test.log test.tex

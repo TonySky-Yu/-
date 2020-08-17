@@ -18,7 +18,7 @@ while True:
     if if_logging:
         with open("Loggings.log", "a") as l:
             l.write(f"({i})")
-    question_list.append(question_maker(a = a, b = b, n = n, if_logging = if_logging)) #产生题目
+    question_list.append(question_maker(a = a, b = b, n = n, kd_list = kd_list[:], if_logging = if_logging)) #产生题目
 
 write(question_list = question_list, title = f"中考数学{num}练")
 

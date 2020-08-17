@@ -1,6 +1,8 @@
-from kds import kd_list
-from random import choice
+from random import choice,randint
 from time import time
+
+def my_choice(seq):
+    return seq.pop(randint(0, len(seq)-1))
 
 def write(question_list, file_name = "test.tex", mode = "w", title = "中考计算精炼", spacenum = 8):
     with open(file_name, mode) as f:
@@ -15,9 +17,9 @@ r"""
         f.write("\n"+r"\end{document}")
 
 
-def question_maker(a, b, n, if_logging):
+def question_maker(a, b, n, kd_list, if_logging = False):
     string = "" #最终返回的题目储存器
-    question_list = [choice(kd_list) for i in range(n)]
+    question_list = [my_choice(kd_list) for i in range(n)]
     if if_logging:
         with open("Loggings.log", "a") as l:
             l.write(f": {[kd.__doc__ for kd in question_list]}\n")
@@ -28,5 +30,5 @@ def question_maker(a, b, n, if_logging):
     return string[:-1]
 
 if __name__ == "__main__":
-    a = question_maker(2, 3, 4)
+    a = question_maker(2, 3, 4, False)
     print(a)
